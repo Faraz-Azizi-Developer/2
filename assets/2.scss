@@ -1,0 +1,79 @@
+* , *::after , *::before{
+    margin: 0; padding: 0; box-sizing: border-box;
+}
+.bt{
+    border: 2px solid red;
+}
+.gallery{
+    width: 500px;
+    height: 700px;
+    margin: 50px auto;
+    position: relative;
+    &::after{
+        content: '';
+        display: flex;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0; left: 0;
+        border: 15px solid rgba(0, 0, 0, 0.442);
+    }
+    >img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    >.border{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0; left: 0;
+        border: 0px solid rgba(0, 0, 0, 0.45);
+        transition: 1s;
+    }
+    &:hover>.border{
+        border: 30px solid rgba(0, 0, 0, 0.45);
+    }
+    &:hover>span:first-of-type{
+        top: 43%; left: 20%;
+        opacity: 1;
+    }
+    &:hover>span:last-of-type{
+        bottom: 43%; right: 20%; 
+        opacity: 1;
+    }
+    >span{
+        width: 200px;
+        height: 70px;
+        background-color: rgba(0, 0, 0, 0.572);
+        position: absolute;
+        display: flex;
+        opacity: 0;
+        transition: 1s;
+        &:first-of-type{
+            top: 30%; left: 10%;
+        }
+        &:last-of-type{
+            bottom: 30%; right: 10%;
+        }
+    }
+    >figcaption{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 50px;
+        position: absolute;
+        top: 45%;
+        right: 0;
+        color: white;
+        font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+        text-transform: capitalize;
+        font-size: 20px;
+        opacity: 0;
+        transition: 1.5s;
+    }
+    &:hover>figcaption{
+        opacity: 1;
+    }
+}
